@@ -65,14 +65,22 @@
 
     // Configurar Swiper
     const swiper = new Swiper(".swiper", {
+        width: 1000,
+        height: 400,
+        direction: "horizontal",
         modules: [Navigation], // definir los módulos a usar
         loop: true, // definir si los slides estarán en bucle
-        slidesPerView: 3, // agregar número de slides para la pantalla
-        spaceBetween: 40, // separación entre slides en px
+        slidesPerView: 2, // agregar número de slides para la pantalla
+        spaceBetween: 20, // separación entre slides en px
         navigation: {
             // definir botones next y prev para el módulo Navigation
             prevEl: ".swiper-button-prev",
             nextEl: ".swiper-button-next",
+        },
+        pagination: {
+            // definir paginación para el módulo Navigation
+            el: ".swiper-pagination",
+            clickable: true,
         },
     });
 
