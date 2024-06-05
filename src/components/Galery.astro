@@ -1,0 +1,120 @@
+---
+
+---
+
+<h2 id="#Gallery" class="text-3xl text-center py-12 font-medium text-gray-800">
+    Galleria
+</h2>
+
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper" id="my-slider">
+        <a
+            class="swiper-slide"
+            href="images/lakeview-elegance.png"
+            data-pswp-width="800"
+            data-pswp-height="800"
+            target="_blank"
+            data-cropped="true"
+        >
+            <img src="images/lakeview-elegance.png" />
+        </a>
+        <a
+            class="swiper-slide"
+            href="images/skyline-oasis.png"
+            data-pswp-width="800"
+            data-pswp-height="800"
+            target="_blank"
+            data-cropped="true"
+        >
+            <img src="images/skyline-oasis.png" />
+        </a>
+        <a
+            class="swiper-slide"
+            href="images/vista-paradiso.png" 
+            data-pswp-width="800"
+            data-pswp-height="800"
+            target="_blank"
+            data-cropped="true"
+        >
+            <img src="images/vista-paradiso.png" />
+        </a>
+        <a
+            class="swiper-slide"
+            href="images/villa-verde.png"
+            data-pswp-width="800"
+            data-pswp-height="800"
+            target="_blank"
+            data-cropped="true"
+        >
+            <img src="images/villa-verde.png" />
+        </a>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+
+<script>
+    // Core de Swiper y estilos
+    import Swiper from "swiper";
+    import "swiper/css";
+    // Módulo Navigation de Swiper y estilos
+    import { Navigation } from "swiper/modules";
+    import "swiper/css/navigation";
+
+    import PhotoSwipeLightbox from "photoswipe/lightbox";
+    import "photoswipe/style.css";
+
+    // Configurar Swiper
+    const swiper = new Swiper(".swiper", {
+        modules: [Navigation], // definir los módulos a usar
+        loop: true, // definir si los slides estarán en bucle
+        slidesPerView: 3, // agregar número de slides para la pantalla
+        spaceBetween: 40, // separación entre slides en px
+        navigation: {
+            // definir botones next y prev para el módulo Navigation
+            prevEl: ".swiper-button-prev",
+            nextEl: ".swiper-button-next",
+        },
+    });
+
+    const lightbox = new PhotoSwipeLightbox({
+        gallery: "#my-slider",
+        children: "a",
+        pswpModule: () => import("photoswipe"),
+    });
+    lightbox.init();
+</script>
+
+<style>
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 1.125rem;
+        background: #fff;
+        position: relative;
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(70%);
+    }
+
+    .swiper-pagination-bullet {
+        width: 0.75rem;
+        height: 0.75rem;
+        display: inline-block;
+        border-radius: 100%;
+        background: white;
+        opacity: 0.2;
+    }
+
+    .swiper-pagination-bullet-active {
+        opacity: 1;
+    }
+</style>
